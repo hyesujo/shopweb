@@ -1,0 +1,338 @@
+@charset "utf-8";
+
+*{
+    box-sizing:border-box;
+    padding: 0;
+}
+body {
+    font-size: 0;
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.topNav {
+    background-color: #fff9d2;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.topNav a{
+    text-decoration: none;
+    color: #282c4c;
+}
+.topNav a:hover {
+    color :black;
+}
+
+.logo i {
+  color: red;
+}
+
+.logo {
+    font-size: 20px;
+}
+
+.nav-center {
+    display: flex;
+    list-style: none;
+    padding-left: 0px;
+}
+
+.nav-center li {
+    padding: 5px 10px 3px 10px;
+}
+
+.sns {
+    display: flex;
+    list-style: none;
+    padding-left: 0px;
+}
+
+.sns li {
+    padding: 5px 5px 3px 10px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 10px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    transition: background-color 0.6s ease ;
+}
+
+.active, .dot:hover {
+    background-color: #fff9d2; 
+}
+
+.slideNav {
+    height: 900px;
+    overflow: hidden;
+}
+
+.slideNav ul,li {
+    list-style: none;
+}
+
+.slideNav ul {
+    margin:0%;
+    height: 100%;
+}
+
+.slideNav li {
+    height: 100%;
+}
+
+.slideNav li:nth-child(1) {
+    background-image: url('./images/main9.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.slideNav li:nth-child(2) {
+    background-image: url('./images/main1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.slideNav li:nth-child(3) {
+    background-image:url('./images/main6.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.row {
+    display: flex;
+    padding: 18px 10px 10px 10px;
+    background-color: #fcf8ec;
+}
+.column {
+    flex: 50%;
+}
+
+.left {
+    height: 450px;
+    font-size: 120px;
+    padding: 80px 0 0 10%;
+    color: #f45700;
+}
+
+.right {
+    max-height: 450px;
+    display: flex;
+}
+
+.left > span {
+    margin: 0;
+    position: relative;
+    font-family: 'Lobster', cursive;
+}
+
+.spana::after {
+    content: "";
+    display: inline-block;
+    height: 6px;
+    position: absolute;
+    right: 0px;
+    bottom: 2px;
+    left:1px;
+    background: #f45700;
+}
+
+.spanb {
+    padding-left: 220px;
+}
+
+.spanb::after {
+    content: "";
+    display: inline-block;
+    height: 6px;
+    position: absolute;
+    right: 0px;
+    bottom: 2px;
+    left:220px;
+    background: #f45700;
+}
+
+.in-left {
+    padding-top: 40px;
+    flex: 50%;
+    margin-right: 20px;
+}
+
+.in-right {
+    flex: 50%;
+    padding-top: 110px;
+}
+
+.in-right > p {
+    font-size: 18px;
+}
+.uni {
+    display: inline-block;
+    padding-top: 50px;
+    font-size: 15px;
+}
+
+.p-header {
+ font-size: 40px !important;
+ margin: 0px;
+}
+
+.t-item {
+    font-size :40px;
+    margin-left: 45%;
+    padding: 50px 0 30px 0;
+}
+
+.item-row {
+    overflow: hidden;
+    display: flex;
+}
+
+.item-column {
+    flex: 25%;
+    margin: 8px;
+    height: 450px;
+    }
+
+    .card1 {
+        margin-left: 150px;
+    }
+
+    .card4 {
+        margin-right: 150px;
+    }
+
+    .in-card {
+        width: 335px;
+        overflow: hidden;
+        object-fit: fill;
+        height: 350px;
+    }
+
+    .back1 {
+        margin-top: 100px;
+        position: relative;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('./images/jj.jpg');
+        min-height: 500px;
+    }
+
+    .caption {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        color: rgba(247, 240, 240, 0.8);
+        font-size: 35px;
+    }
+
+    .caption span.border {
+        padding: 18px;
+        letter-spacing: 10px;
+    }
+
+    .des {
+        font-size: 18px;
+    }
+
+    .text-info {
+        width: 35%;
+        padding: 70px 10px 40px 90px;
+        display: inline-block;
+        font-size: 13px;
+    }
+
+    .bank-info {
+        width: 35%;
+        padding: 70px 0px 40px 90px;
+        display: inline-block;
+        font-size: 13px;
+    }
+
+    .return {
+        text-align: right;
+        width: 30%;
+        padding: 70px 110px 40px 0px;
+        display: inline-block;
+        font-size: 13px;
+    }
+
+    .footer {
+        height: 200px;
+        background-color:  #fcf8ec;
+        font-size: 13px;
+    }
+
+    .footer > ul,li {
+        list-style: none;
+        display: inline-block;
+        word-wrap: break-word;
+        padding: 30px 0px 0 10px;
+    }
+
+    .footer > ul {
+        padding-left: 70px;
+    }
+    .footer > li,a {
+        text-decoration: none;
+        color: rgb(100, 100, 100);
+        text-align: right;
+    }
+
+
+@media screen and (max-width: 600px) {
+    .topNav {
+        display: block;
+        text-align: center;
+    }
+    .nav-center {
+        display: block;
+        text-align: center;
+        padding: 5px 0 5px 0;
+    }
+    .sns {
+       padding-left: 46%;   
+    }
+    .sns li {
+        padding: 0 5px 0 0;
+    }
+}
+
+
+
+@media screen and (max-width: 1215px) {
+.p-header {
+    font-size: 19px !important;
+}
+
+.in-right > p {
+    font-size: 15px;
+}
+.left {
+    height: 450px;
+    font-size: 80px;
+    padding: 80px 0 0 10%;
+    color: #f45700;
+}
+.spanb {
+    padding-left: 130px;
+}
+
+.spanb::after {
+    content: "";
+    display: inline-block;
+    height: 6px;
+    position: absolute;
+    right: 0px;
+    bottom: 2px;
+    left:130px;
+    background: #f45700;
+}
+}
