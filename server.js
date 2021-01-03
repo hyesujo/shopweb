@@ -1,4 +1,3 @@
-
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
@@ -8,27 +7,27 @@ const flash = require('connect-flash');
 var ejs = require('ejs');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
-const adapter = new FileSync('db.json');
-const db = low(adapter);
+const adapter = new FileSync('db.json'),
+    db = low(adapter),
+    bcrypt = require('bcrypt'),
+    shortid = require('shortid'),
+    sanitizeHtml = require('sanitize-html'),
+    app = express(),
+    passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy,
+    compression = require('compression'),
+    { Cookie } = require('express-session');
+
 db.defaults({user:[]}).write();
-const bcrypt = require('bcrypt');
-const shortid = require('shortid');
-const sanitizeHtml = require('sanitize-html');
+app.use(flash());
+app.set('view engine', "ejs");
+app.use('/server', express.static(path.join(__dirname+'/server')));
+// app.use(bodyParser.urlencoded({
+//     extended: false
+// }));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
-const app = express();
-const passport = require('passport'),
-LocalStrategy = require('passport-local').Strategy;
-    
-
-
-const compression = require('compression');
-const { Cookie } = require('express-session');
-
-
-app.use(express.static('server'));
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
 app.use(compression());
 app.use(session({
     secret: 'sfefgffss',
@@ -50,7 +49,7 @@ passport.serializeUser(function(user,done) {
 passport.deserializeUser(function(user, done) {
     console.log('deserializeUser', user);
     let user1 = db.get('user').find({
-        id:id
+        id:user.id
     }).value();
     console.log('deserializeUser', user1);
    done(null, user1);
@@ -89,11 +88,14 @@ passport.use(new LocalStrategy(
     }
 ));
 
-app.use(flash());
-app.set('view engine', "ejs");
+
 
 app.get('/', (req,res) => {
-    res.sendFile('jstyle.html', { root: './server'});
+    // res.sendFile('jstyle.html', { root: './server'});
+    console.log(req.session.passport.user.email)
+    let userEmail = req.session.passport.user.email;
+    res.render(path.join(__dirname,'./server/jstyle.ejs'),{'t':userEmail});
+    
 }); 
 
 app.get('/auth/login', (req,res) => {
@@ -103,10 +105,10 @@ app.get('/auth/login', (req,res) => {
 app.post('/auth/login_process', passport.authenticate('local', {
     failureRedirect:'/login'}), (req,res) => {
         console.log('실행하면');
-        res.redirect('/');
-        // req.session.save(() => {
-        //     res.redirect('/');
-        // });
+        // res.redirect('/');
+        req.session.save(() => {
+            res.redirect('/');
+        });
     });
 
 app.get('/auth/register', (req,res) => {
