@@ -23,6 +23,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const compression = require('compression');
+const { Cookie } = require('express-session');
 
 
 app.use(express.static('server'));
@@ -34,21 +35,34 @@ app.use(session({
     secret: 'sfefgffss',
     resave: false,
     saveUninitialized: true,
+    Cookie:{secure:false,httponly:true},
     store: new FileStore()
 }));
 
+
 passport.serializeUser(function(user,done) {
     console.log('serializeUser', user);
-    done(null, user.id);
+    done(null, user);
+});
+
+
+passport.deserializeUser(function(user, done) {
+    console.log('deserializeUser', id, user);
+    let user1 = db.get('user').find({
+        id:id
+    }).value();
+    console.log('deserializeUser', id, user1);
+   done(null, user1);
 });
 
 passport.use(new LocalStrategy(
     {
       usernameField : 'email',
-      passwordField: 'pwd'
+      passwordField: 'pwd',
+      session : true,
     },
     function(email, password, done) {
-        console.log('LocalStrategy', email, password);
+        console.log('localStorage', email, password);
         let user = db.get('user').find({
             email:email
             }).value();
@@ -56,6 +70,7 @@ passport.use(new LocalStrategy(
         if(user) {
            bcrypt.compare(password, user.password, function(err, result) {
             if(result) {
+                console.log('성공');
                 return done(null, user, { 
                     message: 'Welcome'
                 });
@@ -73,20 +88,10 @@ passport.use(new LocalStrategy(
     }
 ));
 
-passport.deserializeUser(function(id, done) {
-    console.log('deserializeUser', id, user);
-    let user = db.get('user').find({
-        id:id
-    }).value();
-    console.log('deserializeUser', id, user);
-   done(null, user);
-});
-
 app.use(flash());
 app.set('view engine', "ejs");
 
 app.get('/', (req,res) => {
-    console.log(req.user); 
     res.sendFile('jstyle.html', { root: './server'});
 }); 
 
@@ -95,17 +100,18 @@ app.get('/auth/login', (req,res) => {
 });
 
 app.post('/auth/login_process', passport.authenticate('local', {
-    failureRedirect:'/login'}), (req,res) => {
+    failureRedirect:'/login', successRedirect:'/'}), (req,res) => {
+        console.log('실행하면');
         req.session.save(() => {
             res.redirect('/');
         });
     });
 
-    app.get('/auth/register', (req,res) => {
+app.get('/auth/register', (req,res) => {
         res.sendFile('register.html', {root: './server'});
-    });
+});
 
-    app.post('/auth/register_process', (req, res) => {
+app.post('/auth/register_process', (req, res) => {
         let post = req.body;
         let email = post.email;
         let pwd = post.pwd;
@@ -131,7 +137,7 @@ app.post('/auth/login_process', passport.authenticate('local', {
                 });
             });
         }
-    });
+});
 
 // app.get('/logout', (req,res) => {
 //     req.logout();
