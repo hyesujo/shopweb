@@ -1,0 +1,22 @@
+{
+  "user": [
+    {
+      "id": "YHjfRPVDO",
+      "email": "poer611@naver.com",
+      "password": "123123",
+      "displayName": "혜수"
+    },
+    {
+      "id": "fMXTe6Vlq",
+      "email": "wek611@daum.net",
+      "password": "121212",
+      "displayName": "조혜수"
+    },
+    {
+      "id": "2WIKiZ2nv",
+      "email": "kea7077@naver.com",
+      "password": "$2b$10$hZf7k6810XqsbRpwPL.NHeJl5.3aBFfZ79XSC6FsqbLQMSXh7XfKS",
+      "displayName": "hs"
+    }
+  ]
+}
