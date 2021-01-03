@@ -19,8 +19,7 @@ const app = express();
 const passport = require('passport'),
 LocalStrategy = require('passport-local').Strategy;
     
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 const compression = require('compression');
 const { Cookie } = require('express-session');
@@ -35,9 +34,11 @@ app.use(session({
     secret: 'sfefgffss',
     resave: false,
     saveUninitialized: true,
-    Cookie:{secure:false,httponly:true},
+    cookie:{secure:false,httpOnly:true},
     store: new FileStore()
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 passport.serializeUser(function(user,done) {
@@ -47,11 +48,11 @@ passport.serializeUser(function(user,done) {
 
 
 passport.deserializeUser(function(user, done) {
-    console.log('deserializeUser', id, user);
+    console.log('deserializeUser', user);
     let user1 = db.get('user').find({
         id:id
     }).value();
-    console.log('deserializeUser', id, user1);
+    console.log('deserializeUser', user1);
    done(null, user1);
 });
 
@@ -100,11 +101,12 @@ app.get('/auth/login', (req,res) => {
 });
 
 app.post('/auth/login_process', passport.authenticate('local', {
-    failureRedirect:'/login', successRedirect:'/'}), (req,res) => {
+    failureRedirect:'/login'}), (req,res) => {
         console.log('실행하면');
-        req.session.save(() => {
-            res.redirect('/');
-        });
+        res.redirect('/');
+        // req.session.save(() => {
+        //     res.redirect('/');
+        // });
     });
 
 app.get('/auth/register', (req,res) => {
