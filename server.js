@@ -92,8 +92,8 @@ passport.use(new LocalStrategy(
 
 app.get('/', (req,res) => {
     // res.sendFile('jstyle.html', { root: './server'});
-    console.log(req.session.passport.user.email)
-    let userEmail = req.session.passport.user.email;
+    // console.log(req.session.passport.user.email)
+    let userEmail = req.session.passport?.user?.email || '';
     res.render(path.join(__dirname,'./server/jstyle.ejs'),{'t':userEmail});
     
 }); 
