@@ -88,17 +88,17 @@ body {
 }
 
 .slideNav li:nth-child(1) {
-    background-image: url('./images/main9.jpg');
+    background-image: url('./images/main9.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
 .slideNav li:nth-child(2) {
-    background-image: url('./images/main1.jpg');
+    background-image: url('./images/main1.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
 .slideNav li:nth-child(3) {
-    background-image:url('./images/main6.jpg');
+    background-image:url('./images/main6.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -416,7 +416,6 @@ body {
     .topNav {
         display: block;
         text-align: center;
-        z-index: inherit;
     }
     .nav-center {
         display: block;
@@ -509,7 +508,7 @@ body {
     .topNav {
         display: block;
         text-align: center;
-        z-index: inherit;
+
     }
     .slideNav {
         width: 500px;

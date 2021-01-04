@@ -20,7 +20,7 @@ window.onload = function() {
 }
 
 const openMenu = (x) => {
-   let windowWidth = window.innerWidth;
+   let windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
    x.classList.toggle('change');
    if(x.className === 'container') {
     document.getElementById("mySidenav").style.width = "0%";
@@ -28,9 +28,9 @@ const openMenu = (x) => {
    } else if(x.className = 'container change') {
     document.getElementById("mySidenav").style.width = "20%";
     document.getElementById("main").style.marginLeft = "20%";
-    if(windowWidth <= 400) {
-        document.getElementById("mySidenav").style.width = "30%";
-    document.getElementById("main").style.marginLeft = "30%";
+    if(windowWidth <= 500) {
+        document.getElementById("mySidenav").style.width = "32%";
+    document.getElementById("main").style.marginLeft = "32%";
     }
    } 
 }
