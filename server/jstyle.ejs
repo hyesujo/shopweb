@@ -38,8 +38,12 @@
             </div>
     
             <div class="nav-center">
-                <li><a href="/auth/login" class="actvie" onmouseover="this.innerText='로그인'" onmouseout="this.innerText='LOGIN'"id="login">
-                </a></li>
+                    <%if (!t)  {%>
+                        <li><a href="/auth/login" class="actvie" onmouseover="this.innerText='로그인'" onmouseout="this.innerText='LOGIN'"id="login">LOGIN</a></li>
+                        <%} else if(t){%>
+                            <li><a href="/auth/logout" class="actvie" onmouseover="this.innerText='로그아웃'" onmouseout="this.innerText='LOGOUT'"id="logout">LOGOUT</a></li>
+                            <% } %>
+                
                 <li><a href="/auth/register" id="join" onmouseover="this.innerText='회원가입'" onmouseout="this.innerText='JOIN'">JOIN</a></li>
                 <li><a href="#" id="cart" onmouseover="this.innerText='장바구니'" onmouseout="this.innerText='CART'">CART</a></li>
                 <li><a href="#" id="mypage" onmouseover="this.innerText='마이페이지'" onmouseout="innerText='MYPAGE'">MYPAGE</a></li>
@@ -65,7 +69,7 @@
                 </div>
                 <div class="column right">
                     <div class="in-left">
-                        <img class="images" src="./images/Rainbow.jpg">
+                        <img class="images" src="./server/images/Rainbow.jpg">
                     </div>
                     <div class="in-right">
                         <p class="p-header">Legacy Outlet</p><br>
@@ -82,28 +86,28 @@
             </div>
             <div class="item-row">
                 <div class="item-column card1">
-                    <img class="in-card" src="./images/ba1.jpg">
+                    <img class="in-card" src="./server/images/ba1.jpg">
                     <p class="title">라인 청자켓</p>
                     <hr class="linehr">
                     <p class="des">바이오워싱으로 내츄럴한 매력이 있는 자켓!</p>
                     <p class="price">28,900원</p>               
                 </div>
                 <div class="item-column card2">
-                    <img class="in-card" src="./images/ba2.jpg">
+                    <img class="in-card" src="./server/images/ba2.jpg">
                     <p class="title">폴굿 베이직 티셔츠</p>
                     <hr class="linehr">
                     <p class="des">언제나 인기많은 베이작티♥ 이런게 잇 아이템!</p>
                     <p class="price">15,900원</p>  
                 </div>
                 <div class="item-column card3">
-                    <img class="in-card" src="./images/ba3.jpg">
+                    <img class="in-card" src="./server/images/ba3.jpg">
                     <p class="title">제티 스트라이프 티셔츠</p>
                     <hr class="linehr">
                     <p class="des">포근한 착용감이 매력적인 기모 스트라이프 티셔츠!</p>
                     <p class="price">17,900원</p>  
                 </div>
                 <div class="item-column card4">
-                    <img class="in-card" src="./images/ba4.jpg">
+                    <img class="in-card" src="./server/images/ba4.jpg">
                     <p class="title">마벤 기모퍼 팬츠</p>
                     <hr class="linehr">
                     <p class="des">허리밴딩으로 편안하고 심플한 무드로 데일리 밍크퍼 팬츠^^</p>
@@ -115,28 +119,28 @@
              </div>
              <div class="item-row">
                 <div class="item-column card1">
-                    <img class="in-card" src="./images/bes1.jpg">
+                    <img class="in-card" src="./server/images/bes1.jpg">
                     <p class="title">레이스 기모 맨투맨</p>
                     <hr class="linehr">
                     <p class="des">매시즌 사랑받는 기모맨투맨♥</p>  
                     <p class="price">22,900원</p>               
                 </div>
                 <div class="item-column card2">
-                    <img class="in-card" src="./images/bes2.jpg">
+                    <img class="in-card" src="./server/images/bes2.jpg">
                     <p class="title">슈엣 패딩자켓</p>
                     <hr class="linehr">
                     <p class="des">컬러 배색으로 깔끔하게 포인트를 준 아우터~</p>
                     <p class="price">34,900원</p>
                 </div>
                 <div class="item-column card3">
-                    <img class="in-card" src="./images/bes3.jpg">
+                    <img class="in-card" src="./server/images/bes3.jpg">
                     <p class="title">아츄 패딩자켓</p>
                     <hr class="linehr">
                     <p class="des"> 차가운 바람으로부터 따뜻함을 지켜줄 패딩 점퍼예요~</p>
                     <p class="price">54,900원</p>
                 </div>
                 <div class="item-column card4">
-                    <img class="in-card" src="./images/bes4.jpg">
+                    <img class="in-card" src="./server/images/bes4.jpg">
                     <p class="title">아가일 니트</p>
                     <hr class="linehr">
                     <p class="des"> 입는 순간 러블리함이 물씬! 소장가치 200% 니트!</p>
@@ -196,6 +200,6 @@
             </div> 
     </div>
     
-        <script src="./jstyle.js"></script>
+        <script src="./server/jstyle.js"></script>
 </body>
 </html>

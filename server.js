@@ -143,10 +143,12 @@ app.post('/auth/register_process', (req, res) => {
         }
 });
 
-// app.get('/logout', (req,res) => {
-//     req.logout();
-//      res.sendFile('logout.html', {root: './server'});
-// });
+app.get('/auth/logout', (req,res) => {
+     req.logout();
+     req.session.destroy(function(err){
+        res.redirect('/');
+     })
+});
 
 
 app.use((req,res,next) => {
