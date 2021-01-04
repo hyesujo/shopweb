@@ -103,7 +103,7 @@ app.get('/auth/login', (req,res) => {
 });
 
 app.post('/auth/login_process', passport.authenticate('local', {
-    failureRedirect:'/login'}), (req,res) => {
+    failureRedirect:'/auth/login'}), (req,res) => {
         console.log('실행하면');
         // res.redirect('/');
         req.session.save(() => {
