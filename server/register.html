@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/server/login.css">
     <title></title>
 </head>
 <body>
-    <h2>회원가입</h2>
-    <script>
-    var fmsg = request.flash();
-    var feedback = '';
-    if (fmsg.error) {
-      feedback = fmsg.error[0];
-    }
-    document.getElementById('inner').innerHTML = `${feedback}`;
-    </script>
-     <div id="inner" style="color:red;"></div>
-    <form action="/auth/register_process" method="post">
-        <p><input type="text" name="email" placeholder="email"></p>
-        <p><input type="password" name="pwd" placeholder="password"></p>
-        <p><input type="password" name="pwd2" placeholder="checked password"></p>
-        <p><input type="text" name="displayName" placeholder="display name"></p>
-        <p>
-            <input type="submit" value="Register">
-        </p>
-    </form>
+    <section class="register-form">
+        <h2 class="logo-register">회원가입</h2>
+        <form action="/auth/register_process" method="post">
+            <div class="in-area">
+                <input type="text" name="email" placeholder="email">
+                <label for="email">E-Mail</label>
+            </div>
+            <div class="in-area">
+                <input type="password" name="pwd" placeholder="password">
+                <label for="email">Password</label>
+            </div>
+            <div class="in-area">
+                <input type="password" name="pwd2" placeholder="checked password">
+                <label for="email">Checked-Password</label>
+            </div>
+            <p>
+                <div class="btn-area">
+                    <input type="submit" value="회원가입">
+                </div>
+            </p>
+        </form>
+    </section>
 </body>
 </html>

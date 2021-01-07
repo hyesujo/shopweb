@@ -29,6 +29,9 @@ body {
     color: #f45700;
 }
 
+#main {
+    overflow: hidden;
+}
 
 .logo {
     font-size: 20px;
@@ -185,43 +188,61 @@ body {
 
 .t-item {
     font-size :40px;
-    margin-left: 45%;
+    text-align: center;
     padding: 50px 0 30px 0;
 }
 
 .item-row {
-    display: flex;
-    padding-bottom: 40px;
+    display: block;
+    padding-bottom: 10px;
     overflow: hidden;
 }
 
-.item-column {
-    flex: 25%;
-    margin: 8px;
-    height: 450px;
-    }
+.item-row > div.item-column {
+    display: inline-block;
+    position: relative;
+    width: 20%;
+    margin: 0 0 0 4.2%;
+    padding: 0 0 100px;
+    text-align: left;
+}
 
-    .card1 {
-        margin-left: 150px;
-    }
+.thum {
+    position: relative;
+}
 
-    .card4 {
-        margin-right: 150px;
-    }
+.div.item-column > .thumWrap {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
 
-    .in-card {
-        width: 335px;
-        overflow: hidden;
-        object-fit: fill;
-        height: 350px;
-        transition: all 0.5s;
-    }
+.imageWrap {
+    display: block;
+    overflow: hidden;
+}
 
-    .in-card:hover {    
-        cursor: pointer;
-        opacity: 0.9;
-        transform: translateY(-5px);
-    }
+div.item-column .in-card {
+    width: 100%;
+    vertical-align: top;  
+    height:350px;      
+}
+
+.item-wrap {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1300px;
+    min-width: 1150px;
+    overflow: hidden;
+}
+
+.in-card:hover {    
+    cursor: pointer;
+    opacity: 0.9;
+    transform: translateY(-5px);
+}
 
     .back1 {
         margin-top: 100px;
@@ -230,7 +251,7 @@ body {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-image: url('./images/jj.jpg');
+        background-image: url('./images/jj.png');
         min-height: 500px;
     }
 
@@ -250,12 +271,14 @@ body {
     }
 
     .des {
+        flex: 25%;
         font-size: 13px;
         padding: 0 15px 0 5px;
         margin-left: 5px;
     }
 
     .title {
+        flex: 25%;
         font-size: 15px;
         padding: 15px 10px 0 5px;
         margin: 5px;
@@ -266,7 +289,8 @@ body {
         border-color: rgba(0,0,0,0.2);
     }
 
-    .price {
+     .price {
+        flex: 25%;
         font-size: 13px;
         padding: 0 10px 0 5px;
         margin: 5px;
@@ -399,10 +423,6 @@ body {
         color:  #f45700; 
     }
 
-    .main {
-        transition: all 0.5s;
-    }
-
     #mySidenav > .closebtn {
         position: absolute;
         top: 0;
@@ -413,6 +433,7 @@ body {
 
 
 @media screen and (max-width: 600px) {
+
     .topNav {
         display: block;
         text-align: center;
@@ -433,6 +454,7 @@ body {
 
 
 @media screen and (max-width: 1220px) {
+
 .p-header {
     font-size: 19px !important;
 }
@@ -463,6 +485,7 @@ body {
 }
 
 @media screen and (max-width: 890px) {
+
 
     .right {
         display: block;
@@ -526,17 +549,17 @@ body {
 }
 
 .slideNav li:nth-child(1) {
-    background-image: url('./images/main1m.jpg');
+    background-image: url('./images/main1m.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 .slideNav li:nth-child(2) {
-    background-image: url('./images/main2m.jpg');
+    background-image: url('./images/main2m.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 .slideNav li:nth-child(3) {
-    background-image:url('./images/main3m.jpg');
+    background-image:url('./images/main3m.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -625,40 +648,46 @@ body {
     font-size: 15px !important;
     margin: 0px;
    }
+
    .t-item {
     font-size :25px;
-    margin-left: 45%;
+    text-align: center;
     padding: 30px 0 30px 0;
 }
 
-.item-row {
-    display: flex;
-    width: 500px;
-    padding-bottom: 5px;
-}
 
-.item-column {
-    flex: 25%;
-    margin: 5px;
-    height: 320px;
-    }
-
-    .card1 {
-        margin-left: 5px;
-    }
-
-    .card4 {
-        margin-right: 5px;
-    }
-
-    .in-card {
-        width: 110px;
+    .item-row {
+        display: block;
         overflow: hidden;
-        object-fit: fill;
-        height: 150px;
-        transition: all 0.5s;
+        padding-bottom: 0px;
     }
-
+    
+    .item-row > div.item-column {
+        display: inline-block;
+        position: relative;
+        width: 20.5%;
+        margin: 0 0 0 3%;
+        padding: 0 0 20px;
+        text-align: left;
+    }
+    
+    
+    div.item-column .in-card {
+        width: 100%;
+        overflow: hidden;
+        /* object-fit: fill; */
+        height: 150px;
+        transition: all 0.5s;     
+            
+    }
+    
+    .item-wrap {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 500px;
+        min-width: 500px;
+    }
+    
     .in-card:hover {    
         cursor: pointer;
         opacity: 0.9;
@@ -697,7 +726,7 @@ body {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-image: url('./images/jj.jpg');
+        background-image: url('./images/jj.png');
         min-height: 300px;
         min-width: 500px;
     }
@@ -748,6 +777,19 @@ body {
         word-wrap: break-word;
         padding: 30px 0px 0 10px;
     }
+
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        background-color: #efe9c2;
+        overflow-x: hidden;
+        padding-top: 60px;
+    }
+
 
     #mySidenav > a {
         padding: 8px 8px 8px 32px;

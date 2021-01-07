@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
+        <a href="#">NEW</a>
+        <a href="#">BEST 100</a>
+        <a href="#">BASIC</a>
+        <a href="#">OUTER</a>
+        <a href="#">TOP</a>
+        <a href="#">DRESS/SKIRT</a>
+        <a href="#">PANT</a>
+        <a href="#">LEGGINGS</a>
+        <a href="#">SET</a>
+        <a href="#">ACC</a>
+        <div class="width"></div>
+      </div>
+
+    <div id="main">
+        <nav class="topNav">
+            <div class="icon-bar">
+                <a href="#" class="active-btn"></a>
+                    <div class="container" onclick="openMenu(this)">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+                <span class="logo"> I LoveJ</span>
+            </div>
+    
+            <div class="nav-center">
+                <li><a href="/auth/login" class="actvie" onmouseover="this.innerText='로그인'" onmouseout="this.innerText='LOGIN'"id="login">LOGIN</a></li>
+                <li><a href="/auth/register" id="join" onmouseover="this.innerText='회원가입'" onmouseout="this.innerText='JOIN'">JOIN</a></li>
+                <li><a href="#" id="cart" onmouseover="this.innerText='장바구니'" onmouseout="this.innerText='CART'">CART</a></li>
+                <li><a href="#" id="mypage" onmouseover="this.innerText='마이페이지'" onmouseout="innerText='MYPAGE'">MYPAGE</a></li>
+            </div>
+    
+            <div class="sns">
+               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+               <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            </div>
+        </nav>
+        <div id="contentWrapper">
+            <div id="contentWrap">
+                <div id="content">
+                    <div class="page-body">
+                        <div class="thumb-info minSizeWrap">
+                            <div class="thumb">
+                                <span class="imageWrap">
+                                    <img src="./images/de1.png" alt="디테일" class="deimg">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="info prodInfo">
+                            <div class="prodIfoWrap">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
