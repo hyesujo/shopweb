@@ -18,8 +18,18 @@ const adapter = new FileSync('db.json'),
     compression = require('compression'),
     { Cookie } = require('express-session');
 
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+    host : 'localhost',
+    user : 'root',
+    password : 'qwea1480!!',
+    database: 'product'
+});
+
+connection.connect();
+
+
 db.defaults({user:[]}).write();
-app.use(flash());
 app.set('view engine', "ejs");
 app.use('/server', express.static(path.join(__dirname+'/server')));
 // app.use(bodyParser.urlencoded({
@@ -38,6 +48,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 
 passport.serializeUser(function(user,done) {
@@ -76,13 +87,13 @@ passport.use(new LocalStrategy(
                 });
             } else {
                 return done(null, false, {
-                    message: 'Password is not correct.'
+                    message: '비밀번호가 틀렸어요!'
                 });
             }
            });
         } else {
            return done(null, false, {
-             message: 'Wrong email'
+             message: '이메일이 틀렸어요!'
            });
       }
     }
@@ -91,25 +102,61 @@ passport.use(new LocalStrategy(
 
 
 app.get('/', (req,res) => {
+    connection.query('SELECT * FROM items limit 4', (error, items) => {
+        let userEmail = req.session.passport?.user?.email || '';
+        for(let i = 0; i < items.length; i++) {
+        let toSt = items[i].price.toString();
+        let sp = toSt.split("");
+        let splice1 = sp.splice(2,0, ',');
+        let jo = sp.join("");
+        }
+        res.render(path.join(__dirname,'./server/jstyle.ejs'),{
+            't':userEmail,
+            'data': items,
+        }); 
+    });
     // res.sendFile('jstyle.html', { root: './server'});
     // console.log(req.session.passport.user.email)
-    let userEmail = req.session.passport?.user?.email || '';
-    res.render(path.join(__dirname,'./server/jstyle.ejs'),{'t':userEmail});
+   
+   
     
 }); 
 
 app.get('/auth/login', (req,res) => {
-    res.sendFile('login.html', { root: './server'});
+    let fmsg = req.flash();
+    let feedback = '';
+    if(fmsg.message) {
+        feedback = fmsg.message[0];
+    }
+    console.log(feedback);
+    res.render(path.join(__dirname, './server/login.ejs'), {'fmsg': feedback});
 });
 
-app.post('/auth/login_process', passport.authenticate('local', {
-    failureRedirect:'/auth/login'}), (req,res) => {
-        console.log('실행하면');
-        // res.redirect('/');
+app.post('/auth/login_process',(req,res,next) => {
+    passport.authenticate('local', (err, user, info) => {
+        if(req.session.flash) {
+            req.session.flash = {}
+        }
+        req.flash('message', info.message)
         req.session.save(() => {
-            res.redirect('/');
-        });
+            if(err) {
+                return next(err);
+            }
+            if(!user) {
+                return res.redirect('/auth/login');
+            }
+             req.login(user, (err) => {
+                if (err) {
+                    return next(err)
+                }
+                return req.session.save(() => {
+                    res.redirect('/');
+                });
+             });
+            });
+        })(req, res, next)
     });
+
 
 app.get('/auth/register', (req,res) => {
         res.sendFile('register.html', {root: './server'});
@@ -152,7 +199,7 @@ app.get('/auth/logout', (req,res) => {
 
 
 app.use((req,res,next) => {
-    res.status(404).send('Sorry can\'t find');
+    res.status(404).send('Sorry can\'t find!');
 })
 
 app.listen(3012, () => {
