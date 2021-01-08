@@ -1,0 +1,274 @@
+*{
+    box-sizing:border-box;
+    padding: 0;
+}
+body {
+    font-size: 0;
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.topNav {
+    background-color: #fff9d2;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+}
+
+.topNav a{
+    text-decoration: none;
+    color: #282c4c;
+}
+.topNav a:hover {
+    color: #f45700;
+}
+
+#main {
+    overflow: hidden;
+}
+
+.logo {
+    font-size: 20px;
+    padding: 0 0px 0px 10px;    
+}
+
+.nav-center {
+    display: flex;
+    list-style: none;
+    padding-left: 0px;
+}
+
+.nav-center li {
+    padding: 5px 10px 3px 10px;
+}
+
+.nav-center li {
+    padding: 5px 10px 3px 10px;
+}
+
+.sns {
+    display: flex;
+    list-style: none;
+    padding-left: 0px;
+}
+
+.sns li {
+    padding: 5px 5px 3px 10px;
+}
+
+.active, .dot:hover {
+    background-color: #fff9d2; 
+}
+
+.container {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 22px;
+    background-color: #f45700;
+    height: 3px;
+    margin: 4px 0;
+}
+
+.bar3 {
+    margin: 0 0 9px 0;
+}
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-2px, 2px);
+    transform: rotate(-45deg) translate(-2px, 2px);
+    margin: 0 0 1px 0;
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+    margin: 0 0 1px 0;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #efe9c2;
+    overflow-x: hidden;
+    padding-top: 60px;
+}
+
+#mySidenav > a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px; 
+    color: black;
+    display: block;
+    transition: 0.3s;
+    text-align: start;
+}
+
+#mySidenav > a:hover {
+    color:  #f45700; 
+}
+
+#mySidenav > .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#contentWrapper {
+    padding: 100px 0 90px 0;
+}
+
+div#contentWrap {
+    width: auto;
+    position: relative;
+    margin: 0 auto;
+}
+
+div#content {
+    position: relative;
+    min-height: 440px;
+    width: 100%;
+}
+
+
+.page-body > .thumb-info{
+    width: 1300px;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+}
+
+.page-body > .thumb-info .thumb {
+    margin: 0 auto;
+    width: 814px;
+    height: 800px;
+    overflow: hidden;
+}
+
+.thumb-info > .thumb-wrap {
+    padding: 0;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 800px;
+    text-align: center;
+}
+
+.thumb > .imageWrap {
+    display: block;
+    position: relative;
+    text-align: center;
+}
+
+.in-card {
+    vertical-align: middle;
+}
+
+.page-body {
+    overflow: hidden;
+}
+
+.info {
+    float:right;
+    width: 435px;
+}
+.prodIfoWrap {
+    position: relative;
+    padding: 16px 0 18px;
+}
+
+
+ .title-prod {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.title-sub {
+    font-size: 16px;
+}
+
+#contentWrapper {
+    overflow: hidden;
+}
+
+
+
+#contentWrap::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+@media screen and (max-width: 500px) {
+    .topNav {
+        display: block;
+        text-align: center;
+    }
+    .nav-center {
+        text-align: center;
+        padding: 5px 0 5px 0;
+        margin: 0 auto;
+        display: inline-flex;
+    }
+
+    .sns {
+        padding-left: 43%;
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        background-color: #efe9c2;
+        overflow-x: hidden;
+        padding-top: 60px;
+    }
+
+    .page-body > .thumb-info{
+        width: 500px;
+        position: relative;
+        display: block;
+    }
+
+    .page-body > .thumb-info .thumb {
+        margin: 0 auto;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+    }
+
+    .thumb-info > .thumb-wrap {
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .in-card {
+        vertical-align: top;
+        width: 100%;
+        height: 400px;
+        object-fit: contain;
+    }
+}

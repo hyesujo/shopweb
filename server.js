@@ -80,6 +80,7 @@ passport.use(new LocalStrategy(
 
         if(user) {
            bcrypt.compare(password, user.password, function(err, result) {
+            if(error) throw error;
             if(result) {
                 console.log('성공');
                 return done(null, user, { 
@@ -102,25 +103,35 @@ passport.use(new LocalStrategy(
 
 
 app.get('/', (req,res) => {
-    connection.query('SELECT * FROM items limit 4', (error, items) => {
-        let userEmail = req.session.passport?.user?.email || '';
-        for(let i = 0; i < items.length; i++) {
-        let toSt = items[i].price.toString();
-        let sp = toSt.split("");
-        let splice1 = sp.splice(2,0, ',');
-        let jo = sp.join("");
-        }
-        res.render(path.join(__dirname,'./server/jstyle.ejs'),{
-            't':userEmail,
-            'data': items,
-        }); 
+    connection.query('SELECT * FROM items limit 4', (error, items1) => {
+        connection.query('SELECT * FROM items limit 4 offset 4',(error, items2) => {
+            if(error) throw error;
+            let userEmail = req.session.passport?.user?.email || '';
+            for(let i = 0; i < items1.length; i++) {
+            let toSt = items1[i].price.toString();
+            let sp = toSt.split("");
+            let splice1 = sp.splice(2,0, ',');
+            let jo = sp.join("");
+            // console.log(jo);
+            }
+            res.render(path.join(__dirname,'./server/jstyle.ejs'),{
+                't':userEmail,
+                'data1': items1,
+                'data2':items2,
+            });         
+         }); 
+        });
     });
-    // res.sendFile('jstyle.html', { root: './server'});
-    // console.log(req.session.passport.user.email)
-   
-   
-    
-}); 
+
+    app.get('/shop/shopdetail', (req,res) => {
+        connection.query(`SELECT * FROM items WHERE id=${req.query.id}`, (error, items) => {
+            if(error) throw error;
+                res.render(path.join(__dirname,'./server/detail.ejs'),{
+                    'data': items,
+                });         
+             }); 
+        });
+
 
 app.get('/auth/login', (req,res) => {
     let fmsg = req.flash();

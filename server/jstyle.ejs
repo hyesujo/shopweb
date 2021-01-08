@@ -83,21 +83,20 @@
                     <p>아이러브 <b>베이직</b></p> 
                  </div>
                  <div class="item-row">
-                    <% for(let i = 0; i < data.length; i++) {%>
+                    <% for(let i = 0; i < data1.length; i++) {%>
                      <div class="item-column">
                          <dt class="thum">
-                             <a href="#" class="thumWrap">
+                             <a href=/shop/shopdetail/?id=<%= data1[i].id %> class="thumWrap">
                                  <span class="imageWrap">
-                                    <img class="in-card" src=<%= data[i].image %> />
+                                    <img class="in-card" src=<%= data1[i].image %> />
                                  </span>
-
                              </a>
                          </dt>
                      <div class="item-column-info">
-                        <p class="title"><%= data[i].title %></p>
+                        <p class="title"><%= data1[i].title %></p>
                         <hr>
-                        <p class="des"><%= data[i].des%></p>
-                        <p class="price"><%= data[i].price.toString()%>원</p> 
+                        <p class="des"><%= data1[i].des%></p>
+                        <p class="price"><%= data1[i].price.toString()%>원</p> 
                      </div>
                     </div>
                      <% }%>            
@@ -106,35 +105,24 @@
                  <p>반응좋은 <b>베스트</b></p> 
                  </div>
                 <div class="item-row">
-                 <div class="item-column card1">
-                <img class="in-card" src="./server/images/bes1.jpg">
-                <p class="title">레이스 기모 맨투맨</p>
-                <hr class="linehr">
-                <p class="des">매시즌 사랑받는 기모맨투맨♥</p>  
-                <p class="price">22,900원</p>               
-                </div>
-                <div class="item-column card2">
-                <img class="in-card" src="./server/images/bes2.jpg">
-                <p class="title">슈엣 패딩자켓</p>
-                <hr class="linehr">
-                <p class="des">컬러 배색으로 깔끔하게 포인트를 준 아우터~</p>
-                <p class="price">34,900원</p>
-                </div>
-                <div class="item-column card3">
-                <img class="in-card" src="./server/images/bes3.jpg">
-                <p class="title">아츄 패딩자켓</p>
-                <hr class="linehr">
-                <p class="des"> 차가운 바람으로부터 따뜻함을 지켜줄 패딩 점퍼예요~</p>
-                <p class="price">54,900원</p>
-                </div>
-                <div class="item-column card4">
-                <img class="in-card" src="./server/images/bes4.jpg">
-                <p class="title">아가일 니트</p>
-                <hr class="linehr">
-                <p class="des"> 입는 순간 러블리함이 물씬! 소장가치 200% 니트!</p>
-                <p class="price">24,900원</p>
-                 </div>
-            </div>
+                    <% for(let i = 0; i < data2.length; i++) {%>
+                        <div class="item-column">
+                            <dt class="thum">
+                                <a href="/shop/shopdetail/?id=<%= data2[i].id %>" class="thumWrap">
+                                    <span class="imageWrap">
+                                       <img class="in-card" src=<%= data2[i].image %> />
+                                    </span>
+                                </a>
+                            </dt>
+                        <div class="item-column-info">
+                           <p class="title"><%= data2[i].title %></p>
+                           <hr>
+                           <p class="des"><%= data2[i].des%></p>
+                           <p class="price"><%= data2[i].price.toString()%>원</p> 
+                        </div>
+                    </div>
+                <% }%>            
+              </div>
          </div>
             <div class="back1">
                    <div class="caption">
