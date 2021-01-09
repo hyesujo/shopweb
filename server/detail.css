@@ -27,10 +27,6 @@ body {
     color: #f45700;
 }
 
-#main {
-    overflow: hidden;
-}
-
 .logo {
     font-size: 20px;
     padding: 0 0px 0px 10px;    
@@ -158,7 +154,6 @@ div#content {
     margin: 0 auto;
     width: 814px;
     height: 800px;
-    overflow: hidden;
 }
 
 .thumb-info > .thumb-wrap {
@@ -180,9 +175,6 @@ div#content {
     vertical-align: middle;
 }
 
-.page-body {
-    overflow: hidden;
-}
 
 .info {
     float:right;
@@ -201,10 +193,6 @@ div#content {
 
 .title-sub {
     font-size: 16px;
-}
-
-#contentWrapper {
-    overflow: hidden;
 }
 
 
@@ -244,6 +232,16 @@ div#content {
         padding-top: 60px;
     }
 
+
+
+div#contentWrap {
+    margin: 0;
+}
+
+#contentWrapper {
+    padding: 100px 0 0px 0;
+}
+
     .page-body > .thumb-info{
         width: 500px;
         position: relative;
@@ -254,13 +252,11 @@ div#content {
         margin: 0 auto;
         width: 100%;
         height: 400px;
-        overflow: hidden;
     }
 
     .thumb-info > .thumb-wrap {
         padding: 0;
         position: relative;
-        overflow: hidden;
         width: 100%;
         text-align: center;
     }
@@ -269,6 +265,6 @@ div#content {
         vertical-align: top;
         width: 100%;
         height: 400px;
-        object-fit: contain;
+        object-fit: cover;
     }
 }

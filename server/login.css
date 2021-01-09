@@ -86,3 +86,16 @@ body {
     background-color: #f45700;
     color: white;
 }
+
+@media screen and (max-width : 350px) {
+    .login-form {
+        position: relative;
+        width: 300px;
+    }
+
+    .in-area {
+        width: 300px;
+        position: relative;
+        padding-bottom: 40px;
+    }
+}

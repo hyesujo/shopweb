@@ -28,7 +28,7 @@ const openMenu = (x) => {
    } else if(x.className = 'container change') {
     document.getElementById("mySidenav").style.width = "20%";
     document.getElementById("main").style.marginLeft = "20%";
-    if(windowWidth <= 500) {
+    if(windowWidth < 767) {
         document.getElementById("mySidenav").style.width = "32%";
     document.getElementById("main").style.marginLeft = "32%";
     }
