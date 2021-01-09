@@ -75,10 +75,42 @@
                                                 <td colspan="2">
                                                     <ul class="detailInfo">
                                                         <ul class="list consumer">
-                                                            <em class="title">판매가격</em>
-                                                            <span class="val">
-                                                                
-                                                            </span>
+                                                            <li class="list sellPrice">
+                                                                <em class="title">판매가격</em>
+                                                                <span class="val">
+                                                                    <span class="price">
+                                                                        <%= data[i].price %>원
+                                                                    </span>
+                                                                </span>
+                                                            </li> 
+                                                            <li class="list">
+                                                                <div class="opt-box">
+                                                                    <span class="title">컬러</span>
+                                                                    <span class="val">
+                                                                        <span id="options">
+                                                                            <select id="color">
+                                                                                <option value>-옵션선택-</option>
+                                                                                <option value="블랙">블랙</option>
+                                                                                <option value="블루">블루</option>
+                                                                            </select>
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="opt-box">
+                                                                    <span class="title">사이즈</span>
+                                                                    <span class="val">
+                                                                        <span id="options">
+                                                                            <select id="color">
+                                                                                <option value>-옵션선택-</option>
+                                                                                <option value="100">100</option>
+                                                                                <option value="110">110</option>
+                                                                                <option value="120">120</option>
+                                                                                <option value="130">130</option>
+                                                                            </select>
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </li> 
                                                         </ul>
                                                     </ul>
                                                 </td>

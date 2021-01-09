@@ -780,12 +780,12 @@ div.item-column .in-card {
 
 } 
 
-@media screen and (max-width : 350px) {
+@media screen and (max-width : 450px) {
     
     .topNav {
         display: block;
         text-align: center;
-        font-size:  14px;
+        font-size:  16px;
     }
     .nav-center {
         display: block;
@@ -800,7 +800,7 @@ div.item-column .in-card {
     }
 
     .logo {
-        font-size: 13px ;
+        font-size: 16px ;
     }
 
     .slidWrap {
@@ -875,8 +875,8 @@ div.item-column .in-card {
 }
 
 .left {
-    font-size: 35px;
-    padding: 50px 0 0 3%;
+    font-size: 45px;
+    padding: 50px 0 0 5%;
     color: #f45700;
 }
 
@@ -902,7 +902,7 @@ div.item-column .in-card {
 }
 
 .spanb {
-    padding-left: 40px;
+    padding-left: 60px;
 }
 
 .spanb::after {
@@ -912,19 +912,19 @@ div.item-column .in-card {
     position: absolute;
     right: 0px;
     bottom: 2px;
-    left:40px;
+    left:60px;
     background: #f45700;
 }
 
 .images {
-    width: 140px;
-    height: 120px;
+    width: 160px;
+    height: 130px;
     overflow: hidden;
     margin-top: 10px;
 }
 
 .in-left {
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 
@@ -974,12 +974,12 @@ div.item-column .in-card {
         text-align: left;
     }
     
-    
+
     div.item-column .in-card {
         width: 100%;
         overflow: hidden;
         /* object-fit: fill; */
-        height: 150px;
+        height: 190px;
         transition: all 0.5s;     
             
     }
@@ -987,7 +987,7 @@ div.item-column .in-card {
     .item-wrap {
         width: 100%;
         margin: 0 auto;
-        max-width: 350px;
+        max-width: 450px;
         min-width: 300px;
     }
     
@@ -1035,7 +1035,7 @@ div.item-column .in-card {
     }
 
     .infomation {
-        width: 350px;
+        max-width: 430px;
         display: flex;
     }
  .text-info {
